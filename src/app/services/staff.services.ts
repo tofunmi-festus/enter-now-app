@@ -6,7 +6,7 @@ import { Observable, switchMap } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 
 export class StaffService {
-  private apiBase = 'http://localhost:3000'; // json-server or real API
+  private apiBase = 'https://enter-now-backend.onrender.com/api'; // json-server or real API
 
   constructor(private http: HttpClient) {}
 
