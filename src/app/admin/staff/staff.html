@@ -1,0 +1,93 @@
+<!-- <h2>Staff Record</h2> -->
+<!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8"> -->
+
+<!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+<!-- id Column -->
+<!-- <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef> Staff ID </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container> -->
+
+<!-- Name Column -->
+<!-- <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container> -->
+
+<!-- Department Column -->
+<!-- <ng-container matColumnDef="department">
+    <th mat-header-cell *matHeaderCellDef> Department </th>
+    <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+  </ng-container> -->
+
+<!-- Signin Column -->
+<!-- <ng-container matColumnDef="signin">
+    <th mat-header-cell *matHeaderCellDef> SignIn </th>
+    <td mat-cell *matCellDef="let element"> {{element.signin}} </td>
+  </ng-container> -->
+
+<!-- Lateness Column -->
+<!-- <ng-container matColumnDef="lateness">
+    <th mat-header-cell *matHeaderCellDef> Lateness </th>
+    <td mat-cell *matCellDef="let element"> {{element.lateness}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
+
+<div class="admin-staff-container">
+  <h2>Staff Dashboard</h2>
+
+  <div class="staff-summary">
+    <div class="summary-card" *ngFor="let staff of staffList">
+      <div class="summary-header">
+        <h3>{{ staff.firstName }} {{ staff.lastName }}</h3>
+
+        <!-- Status Badge -->
+        <span *ngIf="hasSignedInToday(staff)" class="signed-today"> Signed in today </span>
+        <span
+          *ngIf="!hasSignedInToday(staff) && (!staff.signIns || staff.signIns.length === 0)"
+          class="no-signin-badge"
+        >
+          No sign-ins yet
+        </span>
+      </div>
+
+      <div class="summary-details">
+        <p><strong>Total Sign-ins:</strong> {{ getStats(staff.signIns ?? []).total }}</p>
+        <p><strong>Lateness:</strong> {{ getStats(staff.signIns ?? []).lateCount }}</p>
+        <p><strong>Deductions:</strong> ₦{{ getStats(staff.signIns ?? []).deduction }}</p>
+      </div>
+    </div>
+  </div>
+
+  <table class="staff-table">
+    <thead>
+      <tr>
+        <th>Staff Name</th>
+        <th>Sign-In Date</th>
+        <th>Method</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let staff of staffList">
+        <!-- Staff header row -->
+        <tr class="staff-header-row">
+          <td colspan="4" class="staff-header">{{ staff.firstName }} {{ staff.lastName }}</td>
+        </tr>
+
+        <!-- Sign-in rows for this staff -->
+        <tr *ngFor="let signIn of staff.signIns">
+          <td></td>
+          <td>{{ signIn.timestamp | date : 'medium' }}</td>
+          <td>{{ signIn.method | titlecase }}</td>
+          <td>{{ signIn.note }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

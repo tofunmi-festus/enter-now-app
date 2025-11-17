@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* sidenav fills wrapper */
+.sidenav-root {
+  height: 100%;
+  width: 100%;
+  background: gray;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;   /* spacing under header */
+  box-sizing: border-box;
+}
+
+/* keep list scrollable if long */
+.sidenav-list {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+/* links */
+.sidenav-list a {
+  display: block;
+  padding: 12px 20px;
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.sidenav-list a:hover{
+  background-color: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #ffffff;
+}
+
+.sidenav-list a.active {
+  background: rgba(255,255,255,0.12);
+  border-left: 4px solid #f37021;
+}

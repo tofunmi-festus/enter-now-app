@@ -1,0 +1,150 @@
+{
+  "staff": [
+    {
+      "id": "1",
+      "firstName": "Ada",
+      "lastName": "Lovelace",
+      "expectedStartTime": "08:00",
+      "signIns": [
+        {
+          "id": "a13a",
+          "staffId": 1,
+          "timestamp": "2025-11-13T08:13:00.000Z",
+          "method": "security",
+          "note": "Signed in by security personnel"
+        },
+        {
+          "id": "a1a9",
+          "staffId": 1,
+          "timestamp": "2025-11-17T05:59:00.000Z",
+          "method": "self",
+          "note": "Signed in by self"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "firstName": "Alan",
+      "lastName": "Turing",
+      "expectedStartTime": "08:00",
+      "signIns": [
+        {
+          "id": "7628",
+          "staffId": 2,
+          "timestamp": "2025-11-13T08:44:00.000Z",
+          "method": "self",
+          "note": "Signed in by self"
+        },
+        {
+          "id": "b551",
+          "staffId": 2,
+          "timestamp": "2025-11-17T05:59:00.000Z",
+          "method": "self",
+          "note": "Signed in by self"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "firstName": "Festus",
+      "lastName": "Idowu",
+      "expectedStartTime": "08:00",
+      "signIns": [
+        {
+          "id": "f3e4",
+          "staffId": 3,
+          "timestamp": "2025-11-17T05:57:00.000Z",
+          "method": "self",
+          "note": "Signed in by self"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "firstName": "Ola",
+      "lastName": "ID",
+      "expectedStartTime": "08:00",
+      "signIns": [
+        {
+          "id": "28a5",
+          "staffId": 4,
+          "timestamp": "2025-11-17T05:59:00.000Z",
+          "method": "self",
+          "note": "Signed in by self"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "firstName": "David",
+      "lastName": "Gakpo",
+      "expectedStartTime": "08:00",
+      "signIns": []
+    },
+    {
+      "id": "6",
+      "firstName": "Sam",
+      "lastName": "Myles",
+      "expectedStartTime": "08:00",
+      "signIns": []
+    },
+    {
+      "id": "7",
+      "firstName": "Dave",
+      "lastName": "Cole",
+      "expectedStartTime": "08:00",
+      "signIns": []
+    },
+    {
+      "id": "8",
+      "firstName": "James",
+      "lastName": "James",
+      "expectedStartTime": "08:00",
+      "signIns": []
+    }
+  ],
+  "signins": [
+    {
+      "id": "a13a",
+      "staffId": 1,
+      "timestamp": "2025-11-13T08:13:00.000Z",
+      "method": "security",
+      "note": "Signed in by security personnel"
+    },
+    {
+      "id": "7628",
+      "staffId": 2,
+      "timestamp": "2025-11-13T08:44:00.000Z",
+      "method": "self",
+      "note": "Signed in by self"
+    },
+    {
+      "id": "f3e4",
+      "staffId": 3,
+      "timestamp": "2025-11-17T05:57:00.000Z",
+      "method": "self",
+      "note": "Signed in by self"
+    },
+    {
+      "id": "a1a9",
+      "staffId": 1,
+      "timestamp": "2025-11-17T05:59:00.000Z",
+      "method": "self",
+      "note": "Signed in by self"
+    },
+    {
+      "id": "b551",
+      "staffId": 2,
+      "timestamp": "2025-11-17T05:59:00.000Z",
+      "method": "self",
+      "note": "Signed in by self"
+    },
+    {
+      "id": "28a5",
+      "staffId": 4,
+      "timestamp": "2025-11-17T05:59:00.000Z",
+      "method": "self",
+      "note": "Signed in by self"
+    }
+  ]
+}

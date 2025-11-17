@@ -1,0 +1,124 @@
+<!-- <form [formGroup]="signInForm" class="signin-form">
+
+    <mat-form-field>
+        <mat-label> StaffId </mat-label>
+        <input matInput type="text" formControlName="staffId">
+    </mat-form-field>
+    
+    <mat-form-field>
+        <mat-label> Password </mat-label>
+        <input matInput type="password" formControlName="password">
+    </mat-form-field>
+
+</form> -->
+
+<!-- <div class="signin-container">
+  <form id="signInForm" [formGroup]="signInForm" class="signin-form">
+    <p style="color: #3f51b5; text-align: center; margin-bottom: 20px;">Staff Signin</p>
+    <mat-form-field class="form-field staff-id-field">
+      <mat-label>Staff Id</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="staffId"
+        id="staffIdInput"
+        class="form-input"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="form-field password-field">
+      <mat-label>Password</mat-label>
+      <input
+        matInput
+        type="password"
+        formControlName="password"
+        id="passwordInput"
+        class="form-input"
+      />
+    </mat-form-field>
+
+    <button type="submit" class="submit-button">Sign In</button>
+  </form>
+</div> -->
+
+<!-- <div class="signin-page">
+  <div class="signin-overlay">
+    <div class="signin-container">
+      <form id="signInForm" [formGroup]="signInForm" class="signin-form">
+        <h2 class="form-title">Sign in to Staff Portal</h2>
+
+        <mat-form-field class="form-field staff-id-field" appearance="outline">
+          <mat-label> Staff ID</mat-label>
+          <input
+            matInput
+            type="text"
+            formControlName="staffId"
+            id="staffIdInput"
+            class="form-input"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="form-field password-field" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            formControlName="password"
+            id="passwordInput"
+            class="form-input"
+          />
+        </mat-form-field>
+
+        <button mat-raised-button class="submit-button" type="submit" (click)="submitForm()">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div> -->
+
+<div class="signin-container">
+  <div class="signin-card">
+    <h2>Staff Sign-In</h2>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="staff">Staff</label>
+        <select id="staff" formControlName="staffId" required>
+          <option value="" disabled>Select Staff</option>
+          <option *ngFor="let s of staffList" [value]="s.id">
+            {{ s.firstName }} {{ s.lastName }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="timestamp">Date & Time</label>
+        <input id="timestamp" type="datetime-local" formControlName="timestamp" />
+      </div>
+
+      <div class="form-group">
+        <label for="method">Sign-In Method</label>
+        <select id="method" formControlName="method" required>
+          <option value="" disabled>Select Method</option>
+          <option value="self">Self</option>
+          <option value="security">Security</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="note">Note</label>
+        <input id="note" type="text" formControlName="note" placeholder="Optional note" />
+      </div>
+
+      <button type="submit">Sign In</button>
+    </form>
+
+    <p
+      class="message"
+      [ngClass]="{
+        success: message.includes('recorded'),
+        error: !message.includes('recorded') && message
+      }"
+    >
+      {{ message }}
+    </p>
+  </div>
+</div>

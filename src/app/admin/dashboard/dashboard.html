@@ -1,0 +1,67 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h2>Welcome, Admin</h2>
+    <button class="create-signin-btn" (click)="openSignInModal()">
+      <span class="btn-icon">+</span> Create Sign-In
+    </button>
+  </div>
+
+  <div class="summary-row">
+    <div class="summary-card signin-card">
+      <h3>Sign-ins</h3>
+      <p>{{ staffRecords.length }}</p>
+    </div>
+    <div class="summary-card lateness-card">
+      <h3>% Lateness</h3>
+      <p>{{ (lateStaffCount / staffRecords.length) * 100 | number : '1.0-0' }}%</p>
+    </div>
+    <div class="summary-card early-card">
+      <h3>% Early Birds</h3>
+      <p>
+        {{
+          ((staffRecords.length - lateStaffCount) / staffRecords.length) * 100 | number : '1.0-0'
+        }}%
+      </p>
+    </div>
+    <div class="summary-card suspension-card">
+      <h3>Suspensions</h3>
+      <p>0</p>
+    </div>
+  </div>
+
+  <div class="staff-row">
+    <div class="staff-card">
+      <h3>Top Earliest Staff</h3>
+      <ul>
+        <li
+          *ngFor="let staff of showAllEarliest ? earlyStaffRecords : earlyStaffRecords.slice(0, 5)"
+        >
+          {{ staff.staffName }}
+          <span>- {{ staff.signInTime | date : 'shortTime' }} on {{ staff.date }}</span>
+          <span class="text-green-600 ml-2"> ({{ staff.minutesEarly }} mins early)</span>
+        </li>
+      </ul>
+      <button (click)="toggleView('earliest')">
+        {{ showAllEarliest ? 'View Less' : 'View All' }}
+      </button>
+    </div>
+
+    <div class="staff-card">
+      <h3>Top Latest Staff</h3>
+      <ul>
+        <!-- <li *ngFor="let staff of lateStaffRecords">
+          {{ staff.staffName }} - Signed in at {{ staff.signInTime | date : 'shortTime' }},
+          {{ staff.minutesLate }} mins late
+        </li> -->
+        <li *ngFor="let staff of showAllLate ? lateStaffRecords : lateStaffRecords.slice(0, 5)">
+          {{ staff.staffName }}
+          <span>- {{ staff.signInTime | date : 'shortTime' }} on {{ staff.date }}</span>
+          <span class="text-red-600 ml-2"> ({{ staff.minutesLate }} mins late)</span>
+        </li>
+      </ul>
+      <button (click)="toggleView('late')">
+        {{ showAllLate ? 'View Less' : 'View All' }}
+      </button>
+    </div>
+  </div>
+</div>

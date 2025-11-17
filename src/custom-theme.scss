@@ -1,0 +1,35 @@
+/* ==============================================================
+   Angular Material Custom Theme
+   ==============================================================
+   ✅ Compatible with Angular Material v17+
+   ✅ Uses Material Design 3 Theming System
+   ✅ No duplicated @use rules
+   ============================================================== */
+
+/* All @use rules MUST come first */
+@use '@angular/material' as mat;
+
+/* ==============================================================
+   Define and apply your theme
+   ============================================================== */
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+/* ==============================================================
+   Base global styles
+   ============================================================== */
+body {
+  color-scheme: light;
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+  font: var(--mat-sys-body-medium);
+  margin: 0;
+}

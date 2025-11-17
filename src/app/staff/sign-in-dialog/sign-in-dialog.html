@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Staff Sign-In</h2>
+
+<form [formGroup]="signInForm" class="dialog-form">
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Staff</mat-label>
+    <mat-select formControlName="staffId" required>
+      <mat-option *ngFor="let staff of staffList" [value]="staff.id">
+        {{ staff.firstName }} {{ staff.lastName }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Sign-In Method</mat-label>
+    <mat-select formControlName="method" required>
+      <mat-option value="self">Self</mat-option>
+      <mat-option value="security">Security</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Note</mat-label>
+    <textarea matInput formControlName="note" rows="2" readonly></textarea>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Timestamp</mat-label>
+    <input matInput type="datetime-local" formControlName="timestamp" readonly>
+  </mat-form-field>
+
+  <div class="dialog-actions">
+    <button mat-stroked-button color="warn" (click)="onCancel()">Cancel</button>
+    <button mat-flat-button color="primary" (click)="submit()" [disabled]="signInForm.invalid">
+      Sign In
+    </button>
+  </div>
+
+  <p
+      class="message"
+      [ngClass]="{
+        success: message.includes('recorded'),
+        error: !message.includes('recorded') && message
+      }"
+    >
+      {{ message }}
+    </p>
+
+</form>

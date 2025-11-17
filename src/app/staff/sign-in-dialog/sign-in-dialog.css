@@ -1,0 +1,109 @@
+::ng-deep .mat-mdc-dialog-container {
+  background: #fff;
+  border-radius: 16px !important;
+  padding: 0 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 420px;
+  width: 90vw;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dialog-form {
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+h2.mat-dialog-title {
+  color: #f37021;
+  font-weight: 600;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.8rem;
+}
+
+/* Override Angular Material form fields to look like custom inputs */
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  border-color: #ddd !important;
+  border-radius: 8px !important;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  border-color: #f37021 !important;
+  border-width: 2px !important;
+}
+
+.mat-input-element, .mat-select-trigger {
+  font-size: 0.9rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  border: none !important;
+}
+
+.mat-select-arrow {
+  color: #f37021 !important;
+}
+
+.mat-input-element:focus {
+  outline: none;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+/* Buttons matching sign-in form style */
+button[mat-stroked-button] {
+  min-width: 110px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #f37021;
+  border-color: #f37021;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button[mat-stroked-button]:hover {
+  background-color: rgba(243, 112, 33, 0.1);
+}
+
+button[mat-flat-button] {
+  background-color: #f37021;
+  color: #fff;
+  min-width: 110px;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[mat-flat-button]:hover:not(:disabled) {
+  background-color: #e05e15;
+}
+
+button[mat-flat-button]:disabled {
+  background-color: #fbbd7e;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.success {
+  color: #1a7f37;
+}
+
+.error {
+  color: #c0392b;
+}

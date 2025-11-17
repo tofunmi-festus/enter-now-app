@@ -1,0 +1,48 @@
+/* root page must fill viewport */
+:host, :host * {
+  box-sizing: border-box;
+}
+
+/* overall layout */
+.admin-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* full screen */
+  width: 100%;
+  margin: 0;
+  background-color: #f9fafb;
+}
+
+/* header occupies fixed height */
+app-admin-header {
+  height: 64px; /* consistent header height */
+  flex: 0 0 64px;
+  display: block;
+}
+
+/* body is a row: left side nav + content */
+.admin-body {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0; /* critical so children can scroll */
+  overflow: hidden;
+  width: 100%;
+}
+
+/* wrapper for sidenav column */
+.admin-sidenav-wrapper {
+  width: 240px;        /* desired sidebar width */
+  flex: 0 0 240px;    /* keep fixed width */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* main content fills rest */
+.admin-content {
+  flex: 1 1 auto;
+  min-width: 0;   /* important for preventing overflow */
+  overflow-y: auto;
+  padding: 24px;
+  background: #f9fafb;
+}
